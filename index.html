@@ -82,7 +82,7 @@
 
     <script type="module">
         // ========== KONFIGURASI DASAR ==========
-        const terrainID = 3830182;  // ID terrain dari Cesium Ion
+        const terrainID = 2918417;  // ID terrain dari Cesium Ion
 
         // ID untuk 3 model berbeda
         const modelAssets = [  
@@ -105,7 +105,7 @@
 
         // ========== INISIALISASI VIEWER ==========
         const viewer = new Cesium.Viewer('cesiumContainer', {
-            terrain: await Cesium.CesiumTerrainProvider.fromIonAssetId(3830182),
+            terrain: Cesium.Terrain.fromWorldTerrain(),
             baseLayerPicker: false
         });
 
