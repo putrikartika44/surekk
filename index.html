@@ -78,6 +78,39 @@
 
 
 
+    <!-- Topbar Start
+    <div class="container-fluid bg-dark text-light px-0 py-2">
+        <div class="row gx-0 d-none d-lg-flex">
+            <div class="col-lg-7 px-5 text-start">
+                <div class="h-100 d-inline-flex align-items-center me-4">
+                    <span class="fa fa-phone-alt me-2"></span>
+                    <span>+012 345 6789</span>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center">
+                    <span class="far fa-envelope me-2"></span>
+                    <span>info@example.com</span>
+                </div>
+            </div>
+            <div class="col-lg-5 px-5 text-end">
+                <div class="h-100 d-inline-flex align-items-center mx-n2">
+                    <span>Follow Us:</span>
+                    <a class="btn btn-link text-light" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-link text-light" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-link text-light" href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-link text-light" href=""><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    Topbar End -->
+
+
+  
+
+   
+
+
+
     <div id="cesiumContainer"></div>
 
     <script type="module">
@@ -87,13 +120,13 @@
         // ID untuk 3 model berbeda
         const modelAssets = [  
         {//DTM Ortho
-                id: 4969454,
+                id: 4969455,
                 name: " ",
                 description: `
                 <h3 style="text-align:center">DEM Area Bumi Perkemahan</h3>
                 <p style="text-align:justify">DEM yang digunakan merupakan kombinasi data DTM dan ortofoto di sekitar area Bumi Perkemahan dari hasil pemrosesan data LiDAR.</p>
             `,
-                coords: [110.364772, -7.801423, 50],
+                coords: [110.428200, -7.591200, 50],
         },
         ];
 
@@ -189,7 +222,7 @@
 
         // ========== ATUR POSISI KAMERA ==========
         viewer.camera.flyTo({
-            destination: Cesium.Cartesian3.fromDegrees(110.364772, -7.801423, 1180),
+            destination: Cesium.Cartesian3.fromDegrees(110.4275, -7.5950, 1180),
             orientation: {
                 heading: Cesium.Math.toRadians(0),
                 pitch: Cesium.Math.toRadians(-25),
