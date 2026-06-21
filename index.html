@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>PRGG24-Model 3D Bumi Perkemahan Karang Pramuka Sleman</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/Lambang UGM PNG.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">  
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- CesiumJS -->
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.112/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.112/Build/Cesium/Widgets/widgets.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <style>
+        #cesiumContainer {
+            width: 100%;
+            height: 90vh;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            border: 2px solid #004A74;
+        }
+
+        #toggle-fpv {
+            z-index: 1;
+            position: fixed;
+            top: 100px;
+            left: 15px;
+        }
+
+        #toolbar {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            z-index: 999;
+            font-family: sans-serif;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Topbar Start
+    <div class="container-fluid bg-dark text-light px-0 py-2">
+        <div class="row gx-0 d-none d-lg-flex">
+            <div class="col-lg-7 px-5 text-start">
+                <div class="h-100 d-inline-flex align-items-center me-4">
+                    <span class="fa fa-phone-alt me-2"></span>
+                    <span>+012 345 6789</span>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center">
+                    <span class="far fa-envelope me-2"></span>
+                    <span>info@example.com</span>
+                </div>
+            </div>
+            <div class="col-lg-5 px-5 text-end">
+                <div class="h-100 d-inline-flex align-items-center mx-n2">
+                    <span>Follow Us:</span>
+                    <a class="btn btn-link text-light" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-link text-light" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-link text-light" href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-link text-light" href=""><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light sticky-top p-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <img src="img/LOGO UGM-WHITE.png" style="max-width:50px;"></img>
+            <h1 id="judul-mobile" class="m-0" style="color: white !important;"> Model 3D Karang Pramuka</h1>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a id="nav-beranda" href="index.html" class="nav-item nav-link">Beranda</a>
+                <div class="nav-item dropdown">
+                    <a id="nav-tentang" href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tentang</a>
+                    <div class="dropdown-menu bg-light m-0">
+                        <a href="index.html#latar_belakang" class="dropdown-item">Latar Belakang</a>
+                        <a href="index.html#peralatan" class="dropdown-item">Peralatan</a>
+                        <a href="index.html#software" class="dropdown-item"><i>Software</i></a>
+                    </div>
+                </div>
+                <a id="nav-tahapan" href="index.html#tahapan" class="nav-item nav-link">Tahapan</a>
+                <a id="nav-dokumentasi" href="index.html#dokumentasi" class="nav-item nav-link">Dokumentasi</a>
+                <a id="nav-tim" href="index.html#tim" class="nav-item nav-link">Tim</a>
+                <div class="nav-item dropdown">
+            </div>
+            <a href="index.html" class="btn btn-primary py-4 px-lg-4 rounded-0 d-none d-lg-block" style="background-color: white !important;; color: #0C2B4E;">Kembali ke Beranda<i class="fa fa-arrow-right ms-3"></i></a>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <button id="measureBtn" 
+        style="
+            position: fixed;
+            top: 90px;
+            left: 10px;
+            z-index: 999;
+            padding: 6px 10px;
+            background:#004A74;
+            border:none;
+            color:white;
+            border-radius:6px;
+            cursor:pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            font-size: 13px;">
+        Measure Distance
+    </button>
+
+    <div id="layerBox" 
+        style="
+            position: fixed;
+            top: 130px;
+            left: 10px;
+            z-index: 999;
+            padding: 6px 10px;
+            background:#004A74;
+            border:none;
+            color:white;
+            border-radius:6px;
+            cursor:pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            font-size: 13px;
+            
+        ">
+        
+        <span id="layerTitle">DTM Basemap ▼</span>
+
+        <!-- BAGIAN YANG BISA DISEMBUNYIKAN -->
+        <div id="layerOptions" style="margin-top:10px; display:none;">
+            <label style="display:block;margin-top:8px;">
+                <input type="checkbox" id="chkOrto" checked>
+                DTM + Ortophoto
+            </label>
+
+            <label style="display:block;margin-top:5px;">
+                <input type="checkbox" id="chkPolos">
+                DTM
+            </label>
+        </div>
+    </div>
+
+    <div id="cesiumContainer"></div>
+
+    <script type="module">
+        // ========== KONFIGURASI DASAR ==========
+        const terrainID = 2918417;  // ID terrain dari Cesium Ion
+
+        // ID untuk 3 model berbeda
+        const modelAssets = [  
+        {//DTM Ortho
+                id: 4969455,
+                name: " ",
+                description: `
+                <h3 style="text-align:center">DEM Area Bumi Perkemahan</h3>
+                <p style="text-align:justify">DEM yang digunakan merupakan kombinasi data DTM dan ortofoto di sekitar area Bumi Perkemahan dari hasil pemrosesan data LiDAR.</p>
+            `,
+                coords: [110.428200, -7.591200, 50],
+        },
+        ];
+
+        
+
+        // Ganti dengan token milik kamu sendiri dari Cesium Ion
+        Cesium.Ion.defaultAccessToken =
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3MGM0ZjU3My00YzRmLTRmNWYtYjYzMi0wZTM2NWE3MGMwYjQiLCJpZCI6NDQ3MTUwLCJpc3MiOiJodHRwczovL2FwaS5jZXNpdW0uY29tIiwiYXVkIjoidW5kZWZpbmVkX2RlZmF1bHQiLCJpYXQiOjE3ODIwMzA1MzB9.fIbf5WyLQhMmZTEBHEdakAI7iIe3-zZfb5_7o8I8ktU';
+
+        // ========== INISIALISASI VIEWER ==========
+        const viewer = new Cesium.Viewer('cesiumContainer', {
+            terrain: Cesium.Terrain.fromWorldTerrain(),
+            baseLayerPicker: false
+        });
+
+        // ========== TAMBAHKAN SEMUA MODEL ==========
+        const tilesets = [];
+
+        for (const model of modelAssets) {
+            
+            Cesium.Cesium3DTileset.fromIonAssetId(model.id).then(tileset => {
+
+                viewer.scene.primitives.add(tileset);
+                // Simpan tileset sesuai ID untuk toggle
+                window.loadedTiles[model.id] = tileset;
+                tilesets.push({ tileset, ...model });
+
+                // Default: orto aktif, polos mati
+                if (model.id === 4163561) tileset.show = true;
+                if (model.id === 4164395) tileset.show = false;
+
+
+                // Tambah label
+                
+                viewer.entities.add({
+                    name: model.name,
+                    position: Cesium.Cartesian3.fromDegrees(...model.coords),
+                    label: {
+                        text: model.name,
+                        font: "16px sans-serif",
+                        fillColor: Cesium.Color.WHITE,
+                        outlineColor: Cesium.Color.BLACK,
+                        outlineWidth: 2,
+                        style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+                        verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+                        pixelOffset: new Cesium.Cartesian2(0, -20)
+                    }
+                });
+
+                // Translasi
+                tileset.readyPromise.then(() => {
+                    if (model.offset) {
+                        const translation = new Cesium.Cartesian3(
+                            model.offset[0],
+                            model.offset[1],
+                            model.offset[2]
+                        );
+                        tileset.modelMatrix = Cesium.Matrix4.multiply(
+                            tileset.modelMatrix,
+                            Cesium.Matrix4.fromTranslation(translation),
+                            new Cesium.Matrix4()
+                        );
+                    }
+                });
+
+            }).catch(err => {
+                console.error("Gagal load model ID:", model.id, err);
+            });
+
+        }
+
+        // ========== CAROUSEL FUNCTION ==========
+        window.carouselIndex = {};
+
+        window.moveCarousel = function(id, direction) {
+
+            if (!window.carouselIndex[id]) {
+                window.carouselIndex[id] = 0;
+            }
+
+            const track = document.getElementById("track-" + id);
+            const totalItems = track.children.length;
+
+            window.carouselIndex[id] += direction;
+
+            if (window.carouselIndex[id] < 0) window.carouselIndex[id] = totalItems - 1;
+            if (window.carouselIndex[id] >= totalItems) window.carouselIndex[id] = 0;
+
+            track.style.transform = `translateX(-${window.carouselIndex[id] * 100}%)`;
+        }
+
+
+
+        // ========== ATUR POSISI KAMERA ==========
+        viewer.camera.flyTo({
+            destination: Cesium.Cartesian3.fromDegrees(110.4275, -7.5950, 1180),
+            orientation: {
+                heading: Cesium.Math.toRadians(0),
+                pitch: Cesium.Math.toRadians(-25),
+                roll: 0
+            },
+            duration: 3
+        });
+
+
+        // ========== TAMBAHKAN INTERAKSI KLIK ==========
+        // SINGLE handler untuk popup & measure (klik kiri)
+        const handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
+
+        // measure state
+        let measureMode = false;
+        let measurePoints = [];
+        let activeLine = null;
+        let distanceLabel = null;
+
+        // tombol measure (jika kamu punya tombol measureBtn)
+        const measureBtn = document.getElementById("measureBtn");
+        if (measureBtn) {
+            measureBtn.onclick = () => {
+                measureMode = !measureMode;
+                measurePoints = [];
+                if (measureMode) {
+                    alert("Mode pengukuran aktif. Klik dua titik pada objek 3D.");
+                    if (activeLine) { viewer.entities.remove(activeLine); activeLine = null; }
+                    if (distanceLabel) { viewer.entities.remove(distanceLabel); distanceLabel = null; }
+                }
+            };
+        }
+
+        // Handler tunggal
+        handler.setInputAction((movement) => {
+            // 1) Jika measure mode aktif -> proses measurement
+            if (measureMode) {
+                const pos = viewer.scene.pickPosition(movement.position);
+                if (!Cesium.defined(pos)) {
+                    console.log("Tidak dapat pick posisi (tidak ada depth). Pastikan kamera tidak terlalu jauh dan tileset memakai depth.");
+                    return;
+                }
+
+                measurePoints.push(pos);
+
+                if (measurePoints.length === 2) {
+                    // Buat/bersihkan sebelumnya
+                    if (activeLine) { viewer.entities.remove(activeLine); activeLine = null; }
+                    if (distanceLabel) { viewer.entities.remove(distanceLabel); distanceLabel = null; }
+
+                    // Buat garis
+                    activeLine = viewer.entities.add({
+                        polyline: {
+                            positions: measurePoints,
+                            width: 4,
+                            material: Cesium.Color.YELLOW
+                        }
+                    });
+
+                    // Hitung jarak 3D
+                    const d = Cesium.Cartesian3.distance(measurePoints[0], measurePoints[1]);
+
+                    // Titik tengah (midpoint)
+                    const mid = Cesium.Cartesian3.midpoint(measurePoints[0], measurePoints[1], new Cesium.Cartesian3());
+
+                    // Tambah label pada midpoint
+                    distanceLabel = viewer.entities.add({
+                        position: mid,
+                        label: {
+                            text: d.toFixed(2) + " m",
+                            font: "18px sans-serif",
+                            fillColor: Cesium.Color.WHITE,
+                            outlineColor: Cesium.Color.BLACK,
+                            outlineWidth: 4,
+                            style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+                            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+                            pixelOffset: new Cesium.Cartesian2(0, -20)
+                        }
+                    });
+
+                    // reset measure mode
+                    measureMode = false;
+                    measurePoints = [];
+                }
+                return; // penting: stop di sini kalau measure
+            }
+
+            
+
+
+            // 2) Jika bukan measure -> proses pick untuk popup model
+            if (measureMode) return; // kalau sedang ukur, abaikan popup
+
+            const pickedObject = viewer.scene.pick(movement.position);
+            if (!pickedObject) return;
+
+            // Karena primitive = tileset yang diklik
+            const p = pickedObject.primitive;
+
+            // Cari tileset yang cocok
+            const clickedTileset = tilesets.find(t =>
+                t.tileset === p || t.tileset === p._root
+            );
+
+            if (clickedTileset) {
+
+                // Hapus sisa garis dan label pengukuran
+                if (activeLine) { viewer.entities.remove(activeLine); activeLine = null; }
+                if (distanceLabel) { viewer.entities.remove(distanceLabel); distanceLabel = null; }
+                
+                viewer.selectedEntity = new Cesium.Entity({
+                    name: clickedTileset.name,
+                    description: clickedTileset.description
+                });
+            }
+
+
+
+        }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+
+
+        // =============================
+        // LAYER CONTROL CHECKBOX
+        // =============================
+
+        // Pastikan objek tileset sudah disimpan
+        window.loadedTiles = window.loadedTiles || {};
+
+        // Orto
+        document.getElementById("chkOrto").addEventListener("change", () => {
+            const orto = window.loadedTiles[4163561];
+            const polos = window.loadedTiles[4164395];
+
+            if (!orto || !polos) return;
+
+            if (document.getElementById("chkOrto").checked) {
+                // Aktifkan Orto, matikan Polos
+                orto.show = true;
+                polos.show = false;
+
+                document.getElementById("chkPolos").checked = false;
+            } else {
+                // Jika orto dimatikan → polos tetap mati
+                orto.show = false;
+            }
+        });
+
+        // Polos
+        document.getElementById("chkPolos").addEventListener("change", () => {
+            const orto = window.loadedTiles[4163561];
+            const polos = window.loadedTiles[4164395];
+
+            if (!orto || !polos) return;
+
+            if (document.getElementById("chkPolos").checked) {
+                // Aktifkan Polos, matikan Orto
+                polos.show = true;
+                orto.show = false;
+
+                document.getElementById("chkOrto").checked = false;
+            } else {
+                // Jika polos dimatikan → orto tetap mati
+                polos.show = false;
+            }
+        });
+
+        // ======================
+        // COLLAPSIBLE LAYER BOX
+        // ======================
+
+        const layerTitle = document.getElementById("layerTitle");
+        const layerOptions = document.getElementById("layerOptions");
+        const layerBox = document.getElementById("layerBox");
+
+        layerTitle.addEventListener("click", () => {
+            if (layerOptions.style.display === "none") {
+                layerOptions.style.display = "block";
+                layerTitle.innerHTML = "DTM Basemap ▲";
+            } else {
+                layerOptions.style.display = "none";
+                layerTitle.innerHTML = "DTM Basemap ▼";
+            }
+        });
+
+    </script>
+    
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/parallax/parallax.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
