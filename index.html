@@ -39,7 +39,7 @@
     <style>
         #cesiumContainer {
             width: 100%;
-            height: 90vh;
+            height: 100vh;
             margin-top: 0px;
             margin-bottom: 0px;
             border: 2px solid #004A74;
@@ -75,11 +75,7 @@
 </head>
 
 <body>
-    <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
-    </div>
-    <!-- Spinner End -->
+
 
 
     <!-- Topbar Start
@@ -109,85 +105,11 @@
     Topbar End -->
 
 
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-dark navbar-light sticky-top p-0">
-        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <img src="img/LOGO UGM-WHITE.png" style="max-width:50px;"></img>
-            <h1 id="judul-mobile" class="m-0" style="color: white !important;"> Model 3D Karang Pramuka</h1>
-        </a>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a id="nav-beranda" href="index.html" class="nav-item nav-link">Beranda</a>
-                <div class="nav-item dropdown">
-                    <a id="nav-tentang" href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tentang</a>
-                    <div class="dropdown-menu bg-light m-0">
-                        <a href="index.html#latar_belakang" class="dropdown-item">Latar Belakang</a>
-                        <a href="index.html#peralatan" class="dropdown-item">Peralatan</a>
-                        <a href="index.html#software" class="dropdown-item"><i>Software</i></a>
-                    </div>
-                </div>
-                <a id="nav-tahapan" href="index.html#tahapan" class="nav-item nav-link">Tahapan</a>
-                <a id="nav-dokumentasi" href="index.html#dokumentasi" class="nav-item nav-link">Dokumentasi</a>
-                <a id="nav-tim" href="index.html#tim" class="nav-item nav-link">Tim</a>
-                <div class="nav-item dropdown">
-            </div>
-            <a href="index.html" class="btn btn-primary py-4 px-lg-4 rounded-0 d-none d-lg-block" style="background-color: white !important;; color: #0C2B4E;">Kembali ke Beranda<i class="fa fa-arrow-right ms-3"></i></a>
-        </div>
-    </nav>
-    <!-- Navbar End -->
+  
 
-    <button id="measureBtn" 
-        style="
-            position: fixed;
-            top: 90px;
-            left: 10px;
-            z-index: 999;
-            padding: 6px 10px;
-            background:#004A74;
-            border:none;
-            color:white;
-            border-radius:6px;
-            cursor:pointer;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-            font-size: 13px;">
-        Measure Distance
-    </button>
+   
 
-    <div id="layerBox" 
-        style="
-            position: fixed;
-            top: 130px;
-            left: 10px;
-            z-index: 999;
-            padding: 6px 10px;
-            background:#004A74;
-            border:none;
-            color:white;
-            border-radius:6px;
-            cursor:pointer;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-            font-size: 13px;
-            
-        ">
-        
-        <span id="layerTitle">DTM Basemap ▼</span>
 
-        <!-- BAGIAN YANG BISA DISEMBUNYIKAN -->
-        <div id="layerOptions" style="margin-top:10px; display:none;">
-            <label style="display:block;margin-top:8px;">
-                <input type="checkbox" id="chkOrto" checked>
-                DTM + Ortophoto
-            </label>
-
-            <label style="display:block;margin-top:5px;">
-                <input type="checkbox" id="chkPolos">
-                DTM
-            </label>
-        </div>
-    </div>
 
     <div id="cesiumContainer"></div>
 
